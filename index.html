@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/dayjs"></script>
+  <script src="https://unpkg.com/dayjs@1.7.7/locale/ja.js"></script>
   <title>COACHTECH</title>
+  <link rel="stylesheet" href="style.min.css">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="card">
-    <div class="card__img">
-      <img src="img/card.jpg" alt="">
-    </div>
-    <div class="card__content">
-      <div class="card__content-cat">カテゴリー</div>
-      <h2 class="card__content-ttl">今日の朝ごはんは卵と肉を合わせたバランスの良いメニューです。</h2>
-      <div class="card__content-tag">
-        <p class="card__content-tag-item">#朝ごはん</p>
-        <p class="card__content-tag-item card__content-tag-item--last">2021/01/01</p>
-      </div>
-    </div>
-  </div>
+  <header class="header">top</header>
+  <main class="main"></main>
+  <button class="button" id="button">↑</button>
+  <script src="js/main.js">dayjs.locale('ja');</script>
 </body>
 </html>
