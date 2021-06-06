@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,59 +7,41 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
-
-
 <body>
   <div id="app">
-    <p>{{ items[0].name }}: {{ items[0].price }} × {{ items[0].quantity }}</p>
-    <p>小計: {{ totalPrice | numberWithDelimiter }}円</p>
-    <p>合計(税込): {{ totalPriceWithTax | numberWithDelimiter }}円</p>
+    <p>花びらの枚数：{{petal}}</p>
+    <p>現在の状況：{{status}}</p>
+    <button v-on:click="petalMinus">花びらを減らす</button>
   </div>
   <script>
-    const items = [
-      {
-        name: '鉛筆',
-        price: 300,
-        quantity: 0
-      },
-      {
-        name: 'ノート',
-        price: 400,
-        quantity: 0
-      },
-      {
-        name: '消しゴム',
-        price: 500,
-        quantity: 0
-      }
-    ]
     const vm = new Vue({
-      el: '#app',
-      data: {
-        items: items
+      el:"#app",
+      data(){
+        return{
+          petal:0,
+          status:"好き",
+        }
       },
-      filters: {
-        numberWithDelimiter: function (value) {
-          if (!value) {
-            return '0'
+      methods:{
+        petalMinus:function(){
+          if(this.petal===0){
+            alert("花弁がなくなりました")
+            return;
           }
-          return value.toLocaleString()
+          this.petal--,
+          newStatus?"好き":"嫌い"
+        },
+        newStatus:function () {
+          if (this.petal % 2 === 0) {
+            return true
+          }
         }
       },
-      computed: {
-        totalPrice: function () {
-          return this.items.reduce((sum, item) => {
-            console.log(item)
-            console.log(sum)
-            return sum + (item.price * item.quantity)
-          }, 0)
-        },
-        totalPriceWithTax: function () {
-          return Math.floor(this.totalPrice * 1.1)
-        }
+      created:function(){
+        this.petal=Math.ceil(Math.random()*10)
+        this.status=newStatus
       }
     })
   </script>
 </body>
-
 </html>
