@@ -29,19 +29,20 @@
             return;
           }
           this.petal--,
-          this.status=newStatus?"好き":"嫌い"
+          this.status=this.newStatus?"好き":"嫌い"
+          console.log(this.newStatus)
         },
-        newStatus:function () {
+        newStatus() {
           if (this.petal % 2 === 0) {
             return true
-          }else{
+          } else {
             return false
           }
-        }
+        },
       },
       created:function(){
         this.petal=Math.ceil(Math.random()*10)
-        this.status=newStatus
+        this.status=this.newStatus?"好き":"嫌い"
       }
     })
   </script>
