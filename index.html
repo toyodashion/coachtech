@@ -29,11 +29,13 @@
             return;
           }
           this.petal--,
-          newStatus?"好き":"嫌い"
+          this.status=newStatus?"好き":"嫌い"
         },
         newStatus:function () {
           if (this.petal % 2 === 0) {
             return true
+          }else{
+            return false
           }
         }
       },
