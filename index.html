@@ -9,42 +9,45 @@
 </head>
 <body>
   <div id="app">
-    <p>花びらの枚数：{{petal}}</p>
-    <p>現在の状況：{{status}}</p>
-    <button v-on:click="petalMinus">花びらを減らす</button>
+    <p v-bind:class="change">{{message}}</p>
+    <input type="text" v-model="message">
   </div>
   <script>
     const vm = new Vue({
       el:"#app",
       data(){
         return{
-          petal:0,
-          status:"好き",
+          message:"pineapple"
         }
       },
       methods:{
-        petalMinus:function(){
-          if(this.petal===0){
-            alert("花弁がなくなりました")
-            return;
+        change:function(){
+          if(this.message === "error"){
+            this.change = "red"
+          }else if(this.message === "warning"){
+            this.change = "yellow"
+          }else if(this.message === "safe"){
+            this.change = "green"
+          }else{
+            this.change = "black"
           }
-          this.petal--,
-          this.status=this.newStatus?"好き":"嫌い"
-          console.log(this.newStatus)
-        },
-        newStatus() {
-          if (this.petal % 2 === 0) {
-            return true
-          } else {
-            return false
-          }
-        },
-      },
-      created:function(){
-        this.petal=Math.ceil(Math.random()*10)
-        this.status=this.newStatus?"好き":"嫌い"
+        }
       }
     })
   </script>
+  <style>
+    .red{
+      color:red
+    }
+    .yellow{
+      color:yellow
+    }
+    .green{
+      color: green;
+    }
+    .black{
+      color: black;
+    }
+  </style>
 </body>
 </html>
