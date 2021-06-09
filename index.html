@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
+
 <body>
   <div id="app">
     <p v-bind:class="change">{{message}}</p>
@@ -14,21 +16,22 @@
   </div>
   <script>
     const vm = new Vue({
-      el:"#app",
-      data(){
-        return{
-          message:"pineapple"
+      el: "#app",
+      data() {
+        return {
+          message: "pineapple"
         }
       },
-      methods:{
-        change:function(){
-          if(this.message === "error"){
+      computed: {
+        change: function () {
+          return
+          if (this.message === "error") {
             this.change = "red"
-          }else if(this.message === "warning"){
+          } else if (this.message === "warning") {
             this.change = "yellow"
-          }else if(this.message === "safe"){
+          } else if (this.message === "safe") {
             this.change = "green"
-          }else{
+          } else {
             this.change = "black"
           }
         }
@@ -36,18 +39,22 @@
     })
   </script>
   <style>
-    .red{
-      color:red
+    .red {
+      color: red
     }
-    .yellow{
-      color:yellow
+
+    .yellow {
+      color: yellow
     }
-    .green{
+
+    .green {
       color: green;
     }
-    .black{
+
+    .black {
       color: black;
     }
   </style>
 </body>
+
 </html>
